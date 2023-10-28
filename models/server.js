@@ -52,6 +52,10 @@ class Server {
         this.app.use(this.path.auth, require('../routes/authRoutes'));
         this.app.use(this.path.amigos, require('../routes/amigoRouter'));
         this.app.use(this.path.notificacion, require('../routes/notificacionRouter'));
+
+        this.app.get('*', (req , res) => {
+            res.sendFile('index.html', {'root': __dirname + '/../public/'});
+        });
     }
 
     socket(){
