@@ -13,7 +13,8 @@ class Server {
         this.app = express();
         this.server = require('http').createServer(this.app);
         this.io = require('socket.io')(this.server, {cors:{
-            origin:'http://localhost:5173'
+            // http://localhost:5173
+            origin:'https://chatappyoldev.netlify.app'
         }});
 
         this.port = process.env.PORT;
